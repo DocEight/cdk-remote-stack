@@ -3,7 +3,7 @@
   "description": "Get outputs and AWS SSM parameters from cross-region AWS CloudFormation stacks",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pahud/cdk-remote-stack.git"
+    "url": "https://github.com/DocEight/cdk-remote-stack.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -32,9 +32,7 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "Pahud Hsieh",
-    "email": "pahudnet@gmail.com",
-    "url": "https://twitter.com/pahudnet",
+    "name": "Jimmy Holmes",
     "organization": false
   },
   "devDependencies": {
