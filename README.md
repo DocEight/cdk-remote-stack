@@ -2,6 +2,8 @@
 [![PyPI version](https://badge.fury.io/py/cdk-remote-stack.svg)](https://badge.fury.io/py/cdk-remote-stack)
 [![release](https://github.com/pahud/cdk-remote-stack/actions/workflows/release.yml/badge.svg)](https://github.com/pahud/cdk-remote-stack/actions/workflows/release.yml)
 
+**This is a maintained fork of [@pahud/cdk-remote-stack](https://github.com/pahud/cdk-remote-stack), as the original project is no longer maintained.**
+
 # cdk-remote-stack
 
 Get outputs and AWS SSM parameters from cross-region AWS CloudFormation stacks
