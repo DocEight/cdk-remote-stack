@@ -136,18 +136,6 @@
         }
       ]
     },
-    "gitpod:prebuild": {
-      "name": "gitpod:prebuild",
-      "description": "Prebuild setup for Gitpod",
-      "steps": [
-        {
-          "exec": "yarn install --frozen-lockfile --check-files"
-        },
-        {
-          "exec": "npx projen compile"
-        }
-      ]
-    },
     "install": {
       "name": "install",
       "description": "Install project dependencies and update lockfile (non-frozen)",

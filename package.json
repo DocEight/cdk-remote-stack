@@ -15,7 +15,6 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
-    "gitpod:prebuild": "npx projen gitpod:prebuild",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
@@ -123,8 +122,8 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "cdk-remote-stack",
-        "module": "cdk_remote_stack"
+        "distName": "dr8-cdk-remote-stack",
+        "module": "dr8_cdk_remote_stack"
       }
     },
     "tsc": {
