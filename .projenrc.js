@@ -1,4 +1,4 @@
-const { awscdk, DevEnvironmentDockerImage, Gitpod } = require("projen");
+const { awscdk } = require("projen");
 
 const PROJECT_NAME = "cdk-remote-stack";
 const PROJECT_DESCRIPTION =
