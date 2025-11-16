@@ -36,9 +36,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: 'main',
   cdkVersion: '2.224.0',
   python: {
+    trustedPublishing: true,
     distName: 'dr8-cdk-remote-stack',
     module: 'dr8_cdk_remote_stack',
   },
+  npmTrustedPublishing: true,
 });
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'yarn-error.log'];
