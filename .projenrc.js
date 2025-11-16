@@ -34,7 +34,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     allowedUsernames: ["DocEight", "cdk-automation"],
   },
   defaultReleaseBranch: "main",
-  cdkVersion: "2.85.0",
+  cdkVersion: "2.224.0",
   python: {
     distName: "dr8-cdk-remote-stack",
     module: "dr8_cdk_remote_stack",
