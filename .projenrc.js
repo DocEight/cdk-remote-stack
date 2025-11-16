@@ -36,8 +36,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: "main",
   cdkVersion: "2.85.0",
   python: {
-    distName: "cdk-remote-stack",
-    module: "cdk_remote_stack",
+    distName: "dr8-cdk-remote-stack",
+    module: "dr8_cdk_remote_stack",
   },
 });
 
