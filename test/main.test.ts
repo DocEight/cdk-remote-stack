@@ -34,16 +34,12 @@ test('create the ServerlessAPI', () => {
   const t = cdk.assertions.Template.fromStack(stackUS);
   t.hasResourceProperties('AWS::CloudFormation::CustomResource', {
     ServiceToken: {
-      'Fn::GetAtt': [
-        'OutputsMyProviderframeworkonEvent64931F85',
-        'Arn',
-      ],
+      'Fn::GetAtt': ['OutputsMyProviderframeworkonEvent64931F85', 'Arn'],
     },
     stackName: 'demo-stack-jp',
     regionName: 'ap-northeast-1',
   });
 });
-
 
 // create tests for `RemoteOutputs`
 describe('RemoteOutputs', () => {
@@ -68,7 +64,7 @@ describe('RemoteOutputs', () => {
     // should have a lambda function
     t.hasResourceProperties('AWS::Lambda::Function', {
       Handler: 'remote-outputs.on_event',
-      Runtime: 'python3.9',
+      Runtime: 'python3.13',
     });
 
     // should have iam role with correct policies
@@ -121,11 +117,10 @@ describe('RemoteOutputs', () => {
     // should have a lambda function with correct timeout
     t.hasResourceProperties('AWS::Lambda::Function', {
       Handler: 'remote-outputs.on_event',
-      Runtime: 'python3.9',
+      Runtime: 'python3.13',
       Timeout: 180,
     });
   });
-
 });
 
 describe('RemoteParameters', () => {
@@ -146,7 +141,7 @@ describe('RemoteParameters', () => {
     // should have a lambda function
     t.hasResourceProperties('AWS::Lambda::Function', {
       Handler: 'remote-parameters.on_event',
-      Runtime: 'python3.9',
+      Runtime: 'python3.13',
     });
 
     // should have iam role with correct policies
@@ -194,7 +189,7 @@ describe('RemoteParameters', () => {
     // should have a lambda function with correct timeout
     t.hasResourceProperties('AWS::Lambda::Function', {
       Handler: 'remote-parameters.on_event',
-      Runtime: 'python3.9',
+      Runtime: 'python3.13',
       Timeout: 180,
     });
   });
