@@ -1,6 +1,8 @@
 [![npm version](https://badge.fury.io/js/cdk-remote-stack.svg)](https://badge.fury.io/js/cdk-remote-stack)
 [![PyPI version](https://badge.fury.io/py/cdk-remote-stack.svg)](https://badge.fury.io/py/cdk-remote-stack)
-[![release](https://github.com/pahud/cdk-remote-stack/actions/workflows/release.yml/badge.svg)](https://github.com/pahud/cdk-remote-stack/actions/workflows/release.yml)
+[![release](https://github.com/DocEight/cdk-remote-stack/actions/workflows/release.yml/badge.svg)](https://github.com/DocEight/cdk-remote-stack/actions/workflows/release.yml)
+
+**This is a maintained fork of [@pahud/cdk-remote-stack](https://github.com/pahud/cdk-remote-stack), as the original project is no longer maintained.**
 
 # cdk-remote-stack
 
