@@ -1,4 +1,4 @@
-const { awscdk } = require('projen');
+import { awscdk } from 'projen';
 
 const PROJECT_NAME = '@doceight/cdk-remote-stack';
 const PROJECT_DESCRIPTION =
@@ -30,7 +30,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     },
   },
   autoApproveOptions: {
-    secret: AUTOMATION_TOKEN,
     allowedUsernames: ['DocEight', 'cdk-automation'],
   },
   defaultReleaseBranch: 'main',
