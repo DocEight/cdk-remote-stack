@@ -1,4 +1,4 @@
-const { awscdk } = require('projen');
+import { awscdk } from 'projen';
 
 const PROJECT_NAME = '@doceight/cdk-remote-stack';
 const PROJECT_DESCRIPTION =
