@@ -53,7 +53,10 @@ export class RemoteOutputs extends Construct {
 
     const myProvider = new cr.Provider(this, 'MyProvider', {
       onEventHandler: onEvent,
-      logRetention: logs.RetentionDays.ONE_DAY,
+      // logRetention: logs.RetentionDays.ONE_DAY, <- deprecated
+      logGroup: new logs.LogGroup(this, 'MyLogGroup', {
+        retention: logs.RetentionDays.ONE_DAY,
+      }),
     });
 
     onEvent.addToRolePolicy(
