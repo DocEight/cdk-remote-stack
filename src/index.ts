@@ -1,6 +1,8 @@
 import * as path from 'path';
 import {
-  Stack, CustomResource, Duration,
+  Stack,
+  CustomResource,
+  Duration,
   aws_iam as iam,
   aws_lambda as lambda,
   aws_logs as logs,
@@ -42,7 +44,9 @@ export class RemoteOutputs extends Construct {
 
     const onEvent = new lambda.Function(this, 'MyHandler', {
       runtime: lambda.Runtime.PYTHON_3_13,
-      code: lambda.Code.fromAsset(path.join(__dirname, '../custom-resource-handler')),
+      code: lambda.Code.fromAsset(
+        path.join(__dirname, '../custom-resource-handler'),
+      ),
       handler: 'remote-outputs.on_event',
       timeout: props.timeout,
     });
@@ -52,10 +56,12 @@ export class RemoteOutputs extends Construct {
       logRetention: logs.RetentionDays.ONE_DAY,
     });
 
-    onEvent.addToRolePolicy(new iam.PolicyStatement({
-      actions: ['cloudformation:DescribeStacks'],
-      resources: ['*'],
-    }));
+    onEvent.addToRolePolicy(
+      new iam.PolicyStatement({
+        actions: ['cloudformation:DescribeStacks'],
+        resources: ['*'],
+      }),
+    );
 
     this.outputs = new CustomResource(this, 'RemoteOutputs', {
       serviceToken: myProvider.serviceToken,
@@ -74,7 +80,6 @@ export class RemoteOutputs extends Construct {
   public get(key: string) {
     return this.outputs.getAttString(key);
   }
-
 }
 
 /**
@@ -123,20 +128,27 @@ export class RemoteParameters extends Construct {
 
     const onEvent = new lambda.Function(this, 'MyHandler', {
       runtime: lambda.Runtime.PYTHON_3_13,
-      code: lambda.Code.fromAsset(path.join(__dirname, '../custom-resource-handler')),
+      code: lambda.Code.fromAsset(
+        path.join(__dirname, '../custom-resource-handler'),
+      ),
       handler: 'remote-parameters.on_event',
       timeout: props.timeout,
     });
 
     const myProvider = new cr.Provider(this, 'MyProvider', {
       onEventHandler: onEvent,
-      logRetention: logs.RetentionDays.ONE_DAY,
+      // logRetention: logs.RetentionDays.ONE_DAY, <- deprecated
+      logGroup: new logs.LogGroup(this, 'MyLogGroup', {
+        retention: logs.RetentionDays.ONE_DAY,
+      }),
     });
 
-    onEvent.addToRolePolicy(new iam.PolicyStatement({
-      actions: ['ssm:GetParametersByPath'],
-      resources: ['*'],
-    }));
+    onEvent.addToRolePolicy(
+      new iam.PolicyStatement({
+        actions: ['ssm:GetParametersByPath'],
+        resources: ['*'],
+      }),
+    );
 
     this.parameters = new CustomResource(this, 'SsmParameters', {
       serviceToken: myProvider.serviceToken,
@@ -150,10 +162,12 @@ export class RemoteParameters extends Construct {
     });
 
     if (props.role) {
-      myProvider.onEventHandler.addToRolePolicy(new iam.PolicyStatement({
-        actions: ['sts:AssumeRole'],
-        resources: [props.role.roleArn],
-      }));
+      myProvider.onEventHandler.addToRolePolicy(
+        new iam.PolicyStatement({
+          actions: ['sts:AssumeRole'],
+          resources: [props.role.roleArn],
+        }),
+      );
     }
   }
 
@@ -164,11 +178,11 @@ export class RemoteParameters extends Construct {
   public get(key: string) {
     return this.parameters.getAttString(key);
   }
-
 }
-
 
 function randomString() {
   // Crazy
-  return Math.random().toString(36).replace(/[^a-z0-9]+/g, '');
+  return Math.random()
+    .toString(36)
+    .replace(/[^a-z0-9]+/g, '');
 }
