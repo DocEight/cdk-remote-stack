@@ -1,5 +1,5 @@
-[![npm version](https://badge.fury.io/js/cdk-remote-stack.svg)](https://badge.fury.io/js/cdk-remote-stack)
-[![PyPI version](https://badge.fury.io/py/cdk-remote-stack.svg)](https://badge.fury.io/py/cdk-remote-stack)
+[![npm version](https://badge.fury.io/js/@doceight%2Fcdk-remote-stack.svg)](https://badge.fury.io/js/@doceight%2Fcdk-remote-stack.svg)
+[![PyPI version](https://badge.fury.io/py/dr8-cdk-remote-stack.svg)](https://badge.fury.io/py/dr8-cdk-remote-stack.svg)
 [![release](https://github.com/DocEight/cdk-remote-stack/actions/workflows/release.yml/badge.svg)](https://github.com/DocEight/cdk-remote-stack/actions/workflows/release.yml)
 
 **This is a maintained fork of [@pahud/cdk-remote-stack](https://github.com/pahud/cdk-remote-stack), as the original project is no longer maintained.**
@@ -14,9 +14,9 @@ Use the npm dist tag to opt in CDKv1 or CDKv2:
 
 ```sh
 // for CDKv2
-npm install cdk-remote-stack
+npm install @doceight/cdk-remote-stack
 or
-npm install cdk-remote-stack@latest
+npm install @doceight/cdk-remote-stack@latest
 
 // for CDKv1
 npm install cdk-remote-stack@cdkv1 
@@ -42,7 +42,7 @@ Let's say we have two cross-regional stacks in the same AWS CDK application:
 2. **stackUS** - stack in United States (`US`) to get the outputs from `stackJP` and print out the SNS `TopicName` from `stackJP` outputs.
 
 ```ts
-import { RemoteOutputs } from 'cdk-remote-stack';
+import { RemoteOutputs } from '@doceight/cdk-remote-stack';
 import * as cdk from 'aws-cdk-lib';
 
 const app = new cdk.App();

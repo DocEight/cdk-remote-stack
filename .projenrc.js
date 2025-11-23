@@ -37,7 +37,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersion: '2.224.0',
   python: {
     trustedPublishing: true,
-    distName: 'dr8-cdk-remote-stack',
+    distName: 'dr8_cdk_remote_stack',
     module: 'dr8_cdk_remote_stack',
   },
   npmTrustedPublishing: true,
