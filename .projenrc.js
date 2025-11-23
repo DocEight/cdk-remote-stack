@@ -3,7 +3,7 @@ import { awscdk } from 'projen';
 const PROJECT_NAME = '@doceight/cdk-remote-stack';
 const PROJECT_DESCRIPTION =
   'Get outputs and AWS SSM parameters from cross-region AWS CloudFormation stacks';
-const AUTOMATION_TOKEN = 'AUTOMATION_GITHUB_TOKEN';
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   authorName: 'Jimmy Holmes',
