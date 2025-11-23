@@ -30,7 +30,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     },
   },
   autoApproveOptions: {
-    secret: 'GITHUB_TOKEN',
+    secret: AUTOMATION_TOKEN,
     allowedUsernames: ['DocEight', 'cdk-automation'],
   },
   defaultReleaseBranch: 'main',
