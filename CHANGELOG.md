@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.0](https://github.com/DocEight/cdk-remote-stack/compare/v2.1.2...v2.2.0) (2025-12-07)
+
+**Behavior change (breaking for log consumers):**
+- Provider Lambdas now use a dedicated LogGroup instead of the deprecated `logRetention` API.
+- Existing LogGroups will not be reused; new logs go to the new LogGroups.
+- (API signatures remain unchanged.)
+
+**Note:** This behavior was originally introduced in v2.1.4, but this release retroactively bumps
+it to a minor version to reflect the change in log handling. My apologies for any inconvenience!
+
 ### [0.1.136](https://github.com/pahud/cdk-remote-stack/compare/v0.1.135...v0.1.136) (2021-02-03)
 
 ### [0.1.135](https://github.com/pahud/cdk-remote-stack/compare/v0.1.134...v0.1.135) (2021-02-02)
